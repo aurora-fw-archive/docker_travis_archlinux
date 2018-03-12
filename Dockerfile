@@ -2,7 +2,7 @@
 #
 #     docker build --rm=true -t aurorafw/travis-archlinux .
 
-FROM aurorafw/archlinux:latest
+FROM archlinux/base:latest
 MAINTAINER Luís Ferreira <contact@lsferreira.net>
 
 # Setup build user/group
@@ -21,6 +21,8 @@ RUN cat /etc/pacman.d/mirrorlist
 RUN \
     # Update
     pacman -Syu \
+        base-devel \
+        git \
         reflector \
         --noconfirm && \
     # Clean .pacnew files
